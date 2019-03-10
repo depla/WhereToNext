@@ -1,4 +1,4 @@
-package edu.orangecoastcollege.cs273.wheretonext;
+package edu.miracostacollege.cs134.wheretonext;
 
 import android.content.Intent;
 import android.content.res.AssetManager;
@@ -13,6 +13,8 @@ import android.widget.TextView;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.NumberFormat;
+
+import edu.miracostacollege.cs134.wheretonext.R;
 
 public class CollegeDetailsActivity extends AppCompatActivity {
 

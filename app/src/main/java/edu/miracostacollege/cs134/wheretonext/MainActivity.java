@@ -1,4 +1,4 @@
-package edu.orangecoastcollege.cs273.wheretonext;
+package edu.miracostacollege.cs134.wheretonext;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.ListView;
 
 import java.util.List;
+
+import edu.miracostacollege.cs134.wheretonext.model.College;
 
 public class MainActivity extends AppCompatActivity {
 

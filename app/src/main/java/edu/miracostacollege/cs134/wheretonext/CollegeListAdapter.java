@@ -1,4 +1,4 @@
-package edu.orangecoastcollege.cs273.wheretonext;
+package edu.miracostacollege.cs134.wheretonext;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import edu.miracostacollege.cs134.wheretonext.model.College;
 
 /**
  * Helper class to provide custom adapter for the <code>College</code> list.
