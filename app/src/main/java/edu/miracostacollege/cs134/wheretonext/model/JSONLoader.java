@@ -26,6 +26,7 @@ public class JSONLoader {
      */
     public static List<College> loadJSONFromAsset(Context context) throws IOException {
         List<College> allCollegesList = new ArrayList<>();
+
         String json = null;
         InputStream is = context.getAssets().open("Colleges.json");
         int size = is.available();
@@ -36,15 +37,33 @@ public class JSONLoader {
 
         try {
             JSONObject jsonRootObject = new JSONObject(json);
-            JSONArray allCountriesJSON = jsonRootObject.getJSONArray("Colleges");
+            JSONArray allCollegesJSON = jsonRootObject.getJSONArray("Colleges");
 
-            // TODO: Loop through all the colleges in the JSON data, create a College object for each
-            // TODO: Add each college object to the list
+            int numberOfColleges = allCollegesJSON.length();
+
+            // DONE: Loop through all the colleges in the JSON data, create a College object for each
+            for(int i = 0; i < numberOfColleges; i++)
+            {
+                JSONObject collegeJSON = allCollegesJSON.getJSONObject(i);
+
+                College college = new College();
+
+                college.setName(collegeJSON.getString("College Name"));
+                college.setPopulation(Integer.parseInt(collegeJSON.getString("Annual Enrollment")));
+                college.setTuition(Double.parseDouble(collegeJSON.getString("In-state Tuition")));
+                college.setRating(Double.parseDouble(collegeJSON.getString("Rating")));
+                college.setImageName(collegeJSON.getString("Image Name"));
+
+                // DONE: Add each college object to the list
+                allCollegesList.add(college);
+            }
+
+
 
 
 
         } catch (JSONException e) {
-            Log.e("Flag Quiz", e.getMessage());
+            Log.e("Where to Next", e.getMessage());
         }
 
         return allCollegesList;

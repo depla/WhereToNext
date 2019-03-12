@@ -2,11 +2,18 @@ package edu.miracostacollege.cs134.wheretonext;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.AssetManager;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,17 +54,40 @@ public class CollegeListAdapter extends ArrayAdapter<College> {
     @Override
     public View getView(int pos, View convertView, ViewGroup parent)
     {
-
+        College focusedCollege = mCollegesList.get(pos);
 
         LayoutInflater inflater =
                 (LayoutInflater) mContext.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(mResourceId, null);
 
 
-        // TODO:  Write the code to correctly inflate the view (college_list_item) with
-        // TODO:  all widgets filled with the appropriate College information.
+        // DONE:  Write the code to correctly inflate the view (colleges_list_item) with
+        ImageView logoImageView = view.findViewById(R.id.logoImageView);
+        TextView collegeNameTextView = view.findViewById(R.id.collegeNameTextView);
+        RatingBar collegeRatingBar = view.findViewById(R.id.collegeRatingBar);
 
 
+
+        // DONE:  all widgets filled with the appropriate College information.
+        collegeNameTextView.setText(focusedCollege.getName());
+        collegeRatingBar.setRating((float) focusedCollege.getRating());
+
+        //create asset manager
+        AssetManager am = mContext.getAssets();
+
+        try {
+            InputStream stream = am.open(focusedCollege.getImageName());
+            Drawable image = Drawable.createFromStream(stream, focusedCollege.getName());
+
+            //put the image in the image view
+            logoImageView.setImageDrawable(image);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //lets store the position in each views tag
+        view.setTag(pos);
 
         return view;
     }

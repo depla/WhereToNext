@@ -9,7 +9,7 @@
               android:paddingLeft="@dimen/activity_horizontal_margin"
               android:paddingRight="@dimen/activity_horizontal_margin"
               android:paddingTop="@dimen/activity_vertical_margin"
-              tools:context="edu.orangecoastcollege.cs273.wheretonext.CollegeDetailsActivity"
+              tools:context="edu.miracostacollege.cs134.wheretonext.CollegeDetailsActivity"
               android:orientation="vertical"
               android:background="@color/aqua">
 
@@ -48,12 +48,11 @@
         android:id="@+id/collegeDetailsTuitionTextView"/>
 
     <RatingBar
+        android:id="@+id/collegeDetailsRatingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/collegeDetailsRatingBar"
-        android:numStars="@integer/max_num_stars"
+        android:isIndicator="true"
         android:rating="0"
-        android:stepSize=".5"
-        android:isIndicator="true" />
+        android:stepSize=".5" />
 
 </LinearLayout>
