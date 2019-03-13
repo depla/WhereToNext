@@ -35,6 +35,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:clickable="false"
+        android:isIndicator="true"
         app:layout_constraintStart_toEndOf="@+id/logoImageView"
         app:layout_constraintTop_toBottomOf="@+id/collegeNameTextView" />
 </android.support.constraint.ConstraintLayout>
