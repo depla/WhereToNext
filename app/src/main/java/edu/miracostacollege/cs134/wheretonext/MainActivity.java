@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RatingBar;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -124,6 +125,11 @@ public class MainActivity extends AppCompatActivity {
             collegesList.add(collegeToAdd);
 
             collegesListAdapter.notifyDataSetChanged();
+        }
+        else
+        {
+            Toast.makeText(this, getString(R.string.invalid_arguments),
+                    Toast.LENGTH_SHORT).show();
         }
     }
 
