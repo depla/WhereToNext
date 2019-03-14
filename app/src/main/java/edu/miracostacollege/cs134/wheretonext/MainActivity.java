@@ -5,19 +5,23 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.List;
 
 import edu.miracostacollege.cs134.wheretonext.model.College;
 import edu.miracostacollege.cs134.wheretonext.model.JSONLoader;
 
+/**
+ * Activity that lets user enter a new school and click on the schools from a ListView in order
+ * to see more details about that school.
+ *
+ * @author Dennis La
+ */
 public class MainActivity extends AppCompatActivity {
 
     //private DBHelper db;
@@ -30,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
     private EditText tuitionEditText;
     private RatingBar collegeRatingBar;
 
+    /**
+     * Provides user with interface to add a college. Also inflates the list view using the
+     * custom adapter
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +79,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Trigger by clicking a college list item. brings user to CollegeDetailsActivity using
+     * an intent with data from the selected college
+     *
+     * @param view the list item clicked
+     */
     public void viewCollegeDetails(View view) {
 
         // DONE: Implement the view college details using an Intent
@@ -90,6 +106,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Triggered by add college button. Checks if valid info is entered into the EditTexts
+     * and then creates a new College and adds it to the List. Notifies the adapter that the
+     * data set has changed in order to update the list view. If invalid data is entered, a toast
+     * appears to tell the user to enter valid data.
+     *
+     *
+     * @param view
+     */
     public void addCollege(View view) {
 
         College collegeToAdd = new College();

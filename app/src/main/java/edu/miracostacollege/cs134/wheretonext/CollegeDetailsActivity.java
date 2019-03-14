@@ -16,8 +16,17 @@ import java.text.NumberFormat;
 
 import edu.miracostacollege.cs134.wheretonext.R;
 
+/**
+ * Activity that shows the user more information about the selected college
+ *
+ * @author Michael Paulding
+ */
 public class CollegeDetailsActivity extends AppCompatActivity {
 
+    /**
+     * Gets the intent from MainActivity and uses it to populate the college detail views
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
